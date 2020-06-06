@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const { products, isFetching, error } = useSelector((state) => state.app);
+  const { list, isFetching, error } = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -18,14 +18,14 @@ function App() {
         {isFetching && <h3>Carregando...</h3>}
         {!isFetching && error && <h3>Algo deu errado...</h3>}
 
-        {products && (
-        <ul>
-          {products.map(({ id, name }) => (
-            <li key={id}>
-              {name}
-            </li>
-          ))}
-        </ul>
+        {list && (
+          <ul>
+            {list.map(({ id, name }) => (
+              <li key={id}>
+                {name}
+              </li>
+            ))}
+          </ul>
         )}
       </header>
     </div>

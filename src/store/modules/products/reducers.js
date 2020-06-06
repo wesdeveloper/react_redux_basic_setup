@@ -1,20 +1,11 @@
+import initialState from '../../initialState';
 import {
   GET_PRODUCTS_REQUEST,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
 } from './actions';
 
-const initialState = {
-  isFetching: false,
-  error: null,
-  products: [],
-  product: {
-    id: null,
-    name: null,
-  },
-};
-
-const products = (state = initialState, action) => {
+const productsReducer = (state = initialState.products, action) => {
   switch (action.type) {
     case GET_PRODUCTS_REQUEST:
       return {
@@ -24,7 +15,7 @@ const products = (state = initialState, action) => {
     case GET_PRODUCTS_SUCCESS:
       return {
         ...state,
-        products: action.products,
+        list: action.products,
         isFetching: false,
       };
     case GET_PRODUCTS_ERROR:
@@ -38,4 +29,4 @@ const products = (state = initialState, action) => {
   }
 };
 
-export default products;
+export default productsReducer;
