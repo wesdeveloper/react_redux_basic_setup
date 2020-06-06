@@ -1,0 +1,8 @@
+{
+  "products": [
+    { "id": 1, "name": "Mesa" },
+    { "id": 2, "name": "Cadeiras" },
+    { "id": 3, "name": "Computadores" },
+    { "id": 4, "name": "Carros" }
+  ]
+}
