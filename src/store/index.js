@@ -1,14 +1,4 @@
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './rootReducer';
+import devStore from './configStore.dev';
+import prodStore from './configStore.prod';
 
-const loggerMiddleware = createLogger();
-
-const store = createStore(rootReducer,
-  applyMiddleware(
-    thunkMiddleware,
-    loggerMiddleware
-  ));
-
-export default store;
+export default (process.env.NODE_ENV === 'development' ? devStore : prodStore);
